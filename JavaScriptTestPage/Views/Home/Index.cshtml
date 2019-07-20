@@ -1,0 +1,459 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index2</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,900&amp;subset=latin-ext" rel="stylesheet">
+
+    <link href="~/Scripts/my/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Scripts/my/jquery-ui.structure.css" rel="stylesheet" />
+    <link href="~/Scripts/my/jquery-ui.theme.css" rel="stylesheet" />
+
+    <style>
+
+        body {
+            background-image: url('../Img/tiny-squares.png');
+            font-family: 'Lato', sans-serif;
+        }
+
+        .header {
+            height: 50px;
+            width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 40px;
+            padding: 5px;
+            letter-spacing: 20px;
+            background-color: lightgray;
+            position: sticky;
+            top: 10px;
+            z-index: 102;
+            cursor: pointer;
+        }
+
+        .headerOpacityNo {
+            opacity: 0.75;
+        }
+
+        .divInaccessible {
+            pointer-events: none;
+        }
+
+        .container {
+            width: 1250px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .picturebox {
+            width: 250px;
+            height: 250px;
+            float: left;
+            position: relative;
+        }
+
+        .cube {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            opacity: 0.75;
+        }
+
+            .cube img {
+                width: 100%;
+                height: 100%;
+            }
+
+        .cube2 {
+            width: 200px;
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            z-index: 100;
+        }
+
+        .ui-accordion .ui-accordion-header {
+            padding: 12px;
+        }
+
+        .ui-accordion .ui-accordion-content {
+        }
+
+        .break {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+            height: 1px;
+            background-color: black;
+        }
+
+        .draggable {
+            width: 120px;
+            height: 120px;
+            padding: 4px;
+            border: 1px solid black;
+            float: left;
+            margin-left: 10px;
+            margin-right: 10px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 20px;
+        }
+
+            .draggable p {
+                margin-top: 45px;
+            }
+
+        .ui-dialog-titlebar-close {
+            visibility: hidden;
+        }
+
+        .guessBoxes {
+            width: 1200px;
+            height: 130px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+
+        .YT {
+            width: 1200px;
+            height: 355px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 25px;
+            margin-bottom: 50px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container" onselectstart="return false">
+
+        <div class="header">
+            Polish ski jumpers
+        </div>
+
+        <div class="picturebox">
+            <div id="nav" class="cube2">
+                <h3 id="kamil">Kamil Stoch</h3>
+                <p>
+                    2xPŚ<br />
+                    3xIO<br />
+                    1xMŚ<br />
+                    2xTCS
+                </p>
+
+                <h1 id="dawid">Dawid Kubacki</h1>
+                <p>
+                    0xPŚ<br />
+                    0xIO<br />
+                    1xMŚ<br />
+                    0xTCS
+                </p>
+
+                <h1 id="piotr">Piotr Żyła</h1>
+                <p>
+                    0xPŚ<br />
+                    0xIO<br />
+                    0xMŚ<br />
+                    0xTCS
+                </p>
+
+                <h1 id="jakub">Jakub Wolny</h1>
+                <p>
+                    0xPŚ<br />
+                    0xIO<br />
+                    0xMŚ<br />
+                    0xTCS
+                </p>
+            </div>
+        </div>
+
+        <div id="Kamil" class="picturebox">
+            <div class="cube">
+                <img src="~/Img/kamil1.jpg" />
+            </div>
+        </div>
+
+        <div id="Dawid" class="picturebox">
+            <div class="cube">
+                <img src="~/Img/dawid1.jpg" />
+            </div>
+        </div>
+
+        <div id="Piotr" class="picturebox">
+            <div class="cube">
+                <img src="~/Img/piotr1.jpg" />
+            </div>
+        </div>
+
+        <div id="Jakub" class="picturebox">
+            <div class="cube">
+                <img src="~/Img/jakub1.jpg" />
+            </div>
+        </div>
+
+        <div style="clear:both"></div>
+
+        <div class="break"></div>
+
+        <div class="guessBoxes">         
+            <div id="messagebox" title="Congratulation!" hidden>
+                <p>You guessed!</p>
+            </div>
+        </div>
+
+        <div class="break"></div>
+
+        <div id="one" class="YT">
+            <div id="kamilYT" style="float:left">
+                <iframe width="575" height="355" src="https://www.youtube.com/embed/Qt9oUkjCdBI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div style="width:50px; height:50px; float:left;"></div>
+            <div id="dawidYT" style="float:left">
+                <iframe width="575" height="355" src="https://www.youtube.com/embed/sqq7STPXPLg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+
+
+        <div id="two" class="YT">
+            <div id="piotrYT" style="float:left">
+                <iframe width="575" height="355" src="https://www.youtube.com/embed/hYrPnxwWM_s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div style="width:50px; height:50px; float:left;"></div>
+            <div id="jakubYT" style="float:left">
+                <iframe width="575" height="355" src="https://www.youtube.com/embed/q5QOQvjfEiw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="header">
+            Thanks for visiting
+        </div>
+
+    </div>
+</body>
+</html>
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/my/jquery-ui.js"></script>
+<script src="~/Scripts/my/jquery.scrollTo.min.js"></script>
+
+<script>
+    function boxesCreator() {
+        var nums = [];
+        nums.push('<div id="k1" class="ui-widget-content draggable" title=""><p >Kamil</p ></div >');
+        nums.push('<div id="k2" class="ui-widget-content draggable" title=""><p >Stoch</p ></div >');
+        nums.push('<div id="d1" class="ui-widget-content draggable" title=""><p >Dawid</p ></div >');
+        nums.push('<div id="d2" class="ui-widget-content draggable" title=""><p >Kubacki</p ></div >');
+        nums.push('<div id="p1" class="ui-widget-content draggable" title=""><p >Piotr</p ></div >');
+        nums.push('<div id="p2" class="ui-widget-content draggable" title=""><p >Żyła</p ></div >');
+        nums.push('<div id="j1" class="ui-widget-content draggable" title=""><p >Jakub</p ></div >');
+        nums.push('<div id="j2" class="ui-widget-content draggable" title=""><p >Wolny</p ></div >');
+
+        ranNums = [];
+        var i = nums.length;
+        var j = 0;
+
+        while (i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            ranNums.push(nums[j]);
+            nums.splice(j, 1);
+        }
+
+        $(".guessBoxes").append(ranNums[0]);
+        $(".guessBoxes").append(ranNums[1]);
+        $(".guessBoxes").append(ranNums[2]);
+        $(".guessBoxes").append(ranNums[3]);
+        $(".guessBoxes").append(ranNums[4]);
+        $(".guessBoxes").append(ranNums[5]);
+        $(".guessBoxes").append(ranNums[6]);
+        $(".guessBoxes").append(ranNums[7]);
+        $(".guessBoxes").append(ranNums[8]);
+
+    };
+
+    $(document).ready(function () {
+      
+        boxesCreator();        
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+
+        $("#nav").accordion({
+            collapsible: true,
+            event: "click",
+            animate: 500,
+            active: false
+            //heightStyle: true
+        });
+
+
+        var active = false;
+        var activatePrevious = false;
+
+        $("#nav").click(function () {
+                  
+            if (active !== false) {
+                $(".cube").eq(activatePrevious).animate({ left: "25px", top: "25px", opacity: "0.75", width: "200", height: "200" }, 500);
+            }
+            active = $("#nav").accordion("option", "active");
+            
+                                    
+            if (active !== false) {     
+                $(".cube").eq(active).animate({ left: "0px", top: "0px", opacity: "1", width: "250", height: "250" }, 500);
+            }
+            activatePrevious = active;                     
+        });
+    });
+
+
+</script>
+
+<script>
+    $(document).ready(function () {
+
+        function gameOver() {
+            $("#messagebox").dialog({
+                draggable: false,
+                resaizable: false,
+                height: 300,
+                width: 300,
+                modal: true,
+
+                buttons: [
+                    {
+                        text: "Ok",
+                        click: function () {
+
+                            $(this).dialog("close");
+                            reset();
+                        }
+                    }
+                ]
+            });
+        }
+
+        function reset() {
+            //setTimeout(function () {
+
+            //    for (var i = 0; i < boxList.length; i++) {
+            //        $(boxList[i]).css("visibility", "visible");
+            //    }
+            //}, 500);
+
+            $(".guessBoxes").empty();
+            boxesCreator();
+            boxesDragableCreator()
+        }
+
+        function boxesDragableCreator() {
+            var boxList = ["#k1", "#k2", "#d1", "#d2", "#p1", "#p2", "#j1", "#j2"];
+
+            for (var i = 0; i < boxList.length; i++) {
+                $(boxList[i]).draggable({
+                    revert: true,
+                    revertDuration: 500,
+                    start: function () {
+                        $(this).css("z-index", "101");
+                    },
+                    stop: function () {
+                        $(this).css("z-index", "99");
+                    }
+                });
+            }
+
+            var droppableBoxList = ["#Kamil", "#Dawid", "#Piotr", "#Jakub"];
+
+            for (var i = 0; i < droppableBoxList.length; i++) {
+
+                $(droppableBoxList[i]).droppable({
+                    drop: function (event, ui) {
+                        $(this)
+                            .find("p")
+                            .html("Dropped!");
+                        var temp_id = ui.draggable.attr("id");
+                        var temp_id2 = event.target.id;
+                        if
+                        (
+                            (temp_id == "k1" || temp_id == "k2") && temp_id2 == "Kamil" ||
+                            (temp_id == "d1" || temp_id == "d2") && temp_id2 == "Dawid" ||
+                            (temp_id == "p1" || temp_id == "p2") && temp_id2 == "Piotr" ||
+                            (temp_id == "j1" || temp_id == "j2") && temp_id2 == "Jakub"
+                        ) {
+                            $("#" + temp_id).css("visibility", "hidden");
+                        }
+
+                        var visibilityFlag = true;
+
+                        for (var i = 0; i < boxList.length; i++) {
+                            if ($(boxList[i]).css("visibility") == "visible") {
+                                visibilityFlag = false;
+                            }
+                        }
+
+                        if (visibilityFlag) {
+                            gameOver();
+                        }
+                    }
+                });
+            }      
+        }
+
+        boxesDragableCreator();       
+    });
+
+
+</script>
+
+<script>
+    $(document).ready(function () {
+
+        $(window).scroll(function () {
+            var scrollPosition = $(window).scrollTop();
+            if (scrollPosition != 0) {
+                $('.header').addClass("headerOpacityNo");
+            }
+            else {
+                $('.header').removeClass("headerOpacityNo");
+            }
+        });
+        
+
+        $('.header').click(function () {
+
+            $(this).addClass("divInaccessible");
+      
+            $.scrollTo(0, 250, myfunction);
+
+            function myfunction() {
+                $('.header').removeClass('divInaccessible');
+            };                     
+        });                        
+    });
+</script>
+
+<script>
+    $(".guessBoxes").tooltip({
+        track: true,
+        content: "Drag and drop on images",
+        show: { effect: "fade", duration: 1000, },
+        hide: { effect: "hide" }
+    });
+</script>
+
+
