@@ -1,2 +1,2 @@
 # Project-SkiJumpers
-SkiJumpers JQuery JQueryUI 111
+SkiJumpers JQuery JQueryUI
